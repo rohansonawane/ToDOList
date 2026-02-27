@@ -1,16 +1,58 @@
-# React + Vite
+# Modern Todo List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a clean and modern Todo List app I built with React + Vite.  
+The goal was to create something practical (not just a demo): add tasks, set deadlines, keep data saved, and make the UI feel polished.
 
-Currently, two official plugins are available:
+## What I built
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Add new tasks with:
+  - title
+  - description
+  - due date
+  - due time
+- Mark tasks as complete / incomplete
+- Delete individual tasks
+- Filter by `All`, `Active`, and `Completed`
+- Clear all completed tasks
+- Save tasks in `localStorage` so they stay after refresh
+- Pagination-style task loading:
+  - show 5 tasks initially
+  - `Load More` reveals 5 more each time
+- Added 20 dummy tasks by default when storage is empty (for first-time preview)
 
-## React Compiler
+## Project structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I refactored the app into reusable components:
 
-## Expanding the ESLint configuration
+- `TaskForm` - handles task input fields and submit
+- `TaskList` - renders task list / empty state
+- `TaskItem` - renders each single task row
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Main logic like state management, filtering, localStorage sync, sorting, and pagination is in `App.jsx`.
+
+## Tech stack
+
+- React
+- Vite
+- Custom CSS (no UI library)
+- Browser localStorage
+
+## Run locally
+
+```bash
+npm install
+npm run dev
+```
+
+Open: `http://localhost:5173`
+
+## Build for production
+
+```bash
+npm run build
+```
+
+## Why this project
+
+I wanted to make a todo app that looks modern and feels real to use, while still keeping the code simple and component-based.  
+It is a great starter for adding next features like edit task, priority tags, reminders, or drag-and-drop sorting.
